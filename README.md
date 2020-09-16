@@ -1,21 +1,29 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# React | React Landing Page
+# LAB | React IronContacts
 
 ## Introduction
 
-We just learned the basics about creating a **Hello World** app in React, so we will use this exercise to re-do what we just learned (and hopefully to add some style :blossom: ).
+After Ironhack, you have decided to work in the movie industry, and you've found a job where you need to manage the contacts of a famous producer.
 
-![reactjs-landing](https://user-images.githubusercontent.com/23629340/43717301-63db38d2-9987-11e8-81a6-34ea48342663.png)
+We are going to create a contact management app with React for this producer.
 
-## Requirements
+<!-- You can find the starter code in the starter code folder of this GitHub repo. -->
+
+## Setup
 
 - Fork this repo
 - Clone this repo
 
+```shell
+$ cd lab-react-ironcontacts
+$ npm install
+$ npm start
+```
+
 ## Submission
 
-- Upon completion, run the following commands:
+- Upon completion, run the following commands
 
   ```
   git add .
@@ -27,26 +35,56 @@ We just learned the basics about creating a **Hello World** app in React, so we 
 
 ## Instructions
 
-### Iteration 1 | Initial set up
+### Iteration 1 | Display 5 Contacts
 
-Let's start with the basics: as you can see `public` folder is already there and it has some images in it. Let's add the folders you will need for the project: `dist` and `src`. Also, remember to create an `index.html` file, where you will have the entry point of the application. (Refer to the lesson to see where `index.html` suppose to be.)
+Let's take a look at the starter code.
 
-#### Babel and Webpack
+Inside `src` folder, we can find `contacts.json`, a JSON file with the producer's contacts. Import this file and **create an array of the 5 first contacts** to use as your initial state.
 
-Our project needs to have two important packages that are necessary for compiling: `Babel` and `Webpack`.
+Display that array of 5 contacts in a `<table>` and display the `picture`, `name`, and `popularity` of each contact.
 
-But don't worry, we took care of it. As well as of `webpack.config.js` file. :heavy_check_mark:
+To import `contacts.json` in `App.js`, you can simply use:
 
-### Iteration 2 | Create the app
+```js
+import contacts from './contacts.json';
+```
 
-You are ready to start creating your React app. First, add the packages you need (**react@16.3.2 react-dom@16.3.2**). And then create an `index.js` file (refer to the lesson to see where this file suppose to be).
+At the end of this iteration, your application should look like this:
 
-## Iteration 3 | First Landing Page
+![Screenshot](https://i.imgur.com/fPuwZXv.png)
 
-Finally, let's create our landing page. In the `public` folder, you will find all the assets you need to recreate the following landing page:
+### Iteration 2 | Add New Random Contacts
 
-![home](https://user-images.githubusercontent.com/23629340/43718926-863a3c7a-998c-11e8-803b-7c9bc87425bb.png)
+In your application, create a _Add Random Contact_ button so that every time you click on this button, it adds a new random actor.
 
-For now, don't worry about creating more than one component, we will cover that in the following lessons!
+First, randomly select a contact from the larger `contacts` array. Then add that contact to the array that lives in your state (that's the previously created array of 5). Don't forget to `setState()` to cause React to re-render the app.
+
+At the end of this iteration, your website will probably look like this:
+
+![Screenshot](https://i.imgur.com/GuNyYiU.png)
+
+### Iteration 3 | Sort Contacts By Name And Popularity
+
+The producer asked you to add two new buttons to help them sort their contacts. When you click on one of the buttons, it should **sort the table by `name`** (alphabetically) and when you click the other, it should **sort by `popularity`** (highest first).
+
+Don't forget to `setState()` after you sort!
+
+This is what you may have at the end of this iteration:
+
+![Screenshot](https://i.imgur.com/vUDGZ7Y.png)
+
+### Iteration 4 | Remove Contacts
+
+The producer also would like to remove some of their contacts. Implement a _Delete_ button on each row of your `<table>` that will let the user remove the contact they clicked.
+
+When they click, you should get the index of the array of that actor and use it to remove the contact from the array. Don't forget to `setState()` after you remove the contact!
+
+At the end of this iteration, your app may look like this (after playing a little bit with the _Delete_ button):
+
+![Screenshot](https://i.imgur.com/N3K1K1k.png)
+
+### Iteration 5 | Bonus | Styling
+
+Unfortunately, this contact list isn't production ready. This is the movie business! It has to sparkle! Add some beautiful CSS to make the app "pop".
 
 Happy coding! :heart:
